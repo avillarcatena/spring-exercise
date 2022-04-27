@@ -1,0 +1,183 @@
+openapi: 2.0.0
+info:
+  description: "Videojuegos"
+  version: "1.0.0"
+  title: "Swagger Videojuegos"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "apiteam@swagger.io"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+basePath: "/v2"
+
+tags:
+- name: " VideojuegoDto"
+  description: "Todo sobre los videojuegos"
+  externalDocs:
+    description: "Find out more"
+    url: "http://swagger.io"
+schemes:
+- "https"
+- "http"
+
+paths:
+  /videojuego:
+    post:
+      tags:
+        - " VideojuegoDto"
+      summary: "Add un nuevo videojuego"
+      description: ""
+      operationId: addVideojuego
+      consumes:
+         - "application/json"
+         - "application/xml"
+      produces:
+         - "application/json"
+         - "application/xml"
+      parameters:
+         - in: "body"
+           name: "body"
+           description: "Objeto videojuego add a BBDD"
+           required: true
+           schema:
+            $ref: "#/definitions/VideojuegoDto"
+      responses:
+        "200":
+          description: successful operation
+          schema:
+            $ref: '#/definitions/VideojuegoDto'
+        "405":
+          description: "Invalid input"
+    get:
+      tags:
+      - "VideojuegoDto"
+      summary: Get todos los videojuegos
+      description: ''
+      operationId: getVideojuegos
+      produces:
+         - "application/json"
+         - "application/xml"
+      responses:
+         '200':
+           description: "successful operation"
+         '400':
+           description: "Invalid list supplied"
+         '404':
+           description: "List not found"
+    
+        
+/videojuego/{videojuegoId}:
+    get:
+      tags:
+      - "VideojuegoDto"
+      summary: "Buscar videojuego por ID"
+      description: "Devuelve un videojuego"
+      operationId: "getVideojuegoById"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "VideojuegoId"
+        in: "path"
+        description: "ID del videojuego a devolver"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/VideojuegoDto"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Videojuego not found"
+    post:
+      tags:
+      - "VideojuegoDto"
+      summary: "Updates un videojuego guardado"
+      description: ""
+      operationId: "updateVideojuegoWithForm"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "videojuegoId"
+        in: "path"
+        description: "ID del videojuego a modificar"
+        required: true
+        type: "integer"
+        format: "int64"
+      - nombre: "nombre"
+        in: "formData"
+        description: "Updated nombre del videojuego"
+        required: false
+        type: "string"
+      responses:
+        "405":
+          description: "Invalid input"
+      security:
+      
+    delete:
+      tags:
+      - "VideojuegoDto"
+      summary: "Deletes un videojuego"
+      description: ""
+      operationId: "deleteVideojuego"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "api_key"
+        in: "header"
+        required: false
+        type: "string"
+      - name: "VideojuegoId"
+        in: "path"
+        description: "Videojuego id to delete"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Videojuego not found"
+      
+
+definitions:
+  Videojuegos:
+    type: "array"
+    required:
+    - "nombre"
+    - "imagenes"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      nombre:
+        type: "string"
+        example: "Fifa 22"
+      imagenes:
+        type: "array"
+  VideojuegoDto:
+    type: object
+    properties:
+       id:
+         type: integer
+         format: int64
+       nombre:
+         type: string
+       imagenes:
+         type: array
+         items:
+          type: string
+        
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"
+servers:
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/psychovelcro/jjreyaAPI/1.0.0
