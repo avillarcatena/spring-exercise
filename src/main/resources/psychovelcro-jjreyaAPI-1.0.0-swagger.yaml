@@ -67,7 +67,7 @@ paths:
            description: "List not found"
     
         
-/videojuego/{videojuegoId}:
+/videojuego/{VideojuegoId}:
     get:
       tags:
       - "VideojuegoDto"
@@ -103,7 +103,7 @@ paths:
       produces:
       - "application/json"
       parameters:
-      - name: "videojuegoId"
+      - name: "VideojuegoId"
         in: "path"
         description: "ID del videojuego a modificar"
         required: true
