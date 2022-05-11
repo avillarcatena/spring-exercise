@@ -1,27 +1,20 @@
-openapi: 2.0.0
-info:
-  description: "Videojuegos"
-  version: "1.0.0"
-  title: "Swagger Videojuegos"
-  termsOfService: "http://swagger.io/terms/"
-  contact:
-    email: "apiteam@swagger.io"
-  license:
-    name: "Apache 2.0"
-    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
-basePath: "/v2"
-
-tags:
-- name: " VideojuegoDto"
-  description: "Todo sobre los videojuegos"
-  externalDocs:
-    description: "Find out more"
-    url: "http://swagger.io"
-schemes:
-- "https"
-- "http"
-
-paths:
+ swagger: '2.0'
+ info:
+   description: 'person api'
+   version: 1.3.1
+   title: Swagger
+ host: local
+ basePath: /v1
+ tags: 
+  - name: videojuego
+    description: "Todo sobre los videojuegos"
+    externalDocs:
+      description: "Find out more"
+      url: "http://swagger.io"
+ schemes:
+  - "https"
+  - "http"
+ paths:
   /videojuego:
     post:
       tags:
@@ -41,7 +34,7 @@ paths:
            description: "Objeto videojuego add a BBDD"
            required: true
            schema:
-            $ref: "#/definitions/VideojuegoDto"
+              $ref: "#/definitions/VideojuegoDto"
       responses:
         "200":
           description: successful operation
@@ -67,7 +60,7 @@ paths:
            description: "List not found"
     
         
-/videojuego/{VideojuegoId}:
+  /videojuego/{VideojuegoId}:
     get:
       tags:
       - "VideojuegoDto"
@@ -109,7 +102,7 @@ paths:
         required: true
         type: "integer"
         format: "int64"
-      - nombre: "nombre"
+      - name: "nombre"
         in: "formData"
         description: "Updated nombre del videojuego"
         required: false
@@ -117,7 +110,7 @@ paths:
       responses:
         "405":
           description: "Invalid input"
-      security:
+      
       
     delete:
       tags:
@@ -145,39 +138,16 @@ paths:
         "404":
           description: "Videojuego not found"
       
-
-definitions:
-  Videojuegos:
-    type: "array"
-    required:
-    - "nombre"
-    - "imagenes"
-    properties:
-      id:
-        type: "integer"
-        format: "int64"
-      nombre:
-        type: "string"
-        example: "Fifa 22"
-      imagenes:
-        type: "array"
+ definitions:
   VideojuegoDto:
-    type: object
     properties:
        id:
          type: integer
-         format: int64
        nombre:
          type: string
        imagenes:
-         type: array
-         items:
-          type: string
+         type: string
         
-externalDocs:
+ externalDocs:
   description: "Find out more about Swagger"
   url: "http://swagger.io"
-servers:
-  # Added by API Auto Mocking Plugin
-  - description: SwaggerHub API Auto Mocking
-    url: https://virtserver.swaggerhub.com/psychovelcro/jjreyaAPI/1.0.0
