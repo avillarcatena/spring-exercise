@@ -1,0 +1,36 @@
+{
+  "generator-jhipster": {
+    "applicationType": "microservice",
+    "authenticationType": "jwt",
+    "baseName": "springexcercise",
+    "buildTool": "maven",
+    "clientPackageManager": "yarn",
+    "clusteredHttpSession": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "enableSocialSignIn": false,
+    "enableSwaggerCodegen": true,
+    "enableTranslation": false,
+    "entities": ["Videojuego"],
+    "hibernateCache": "ehcache",
+    "jhiPrefix": "jhi",
+    "jhipsterVersion": "7.8.1",
+    "jwtSecretKey": "7c4ac169180fdd06b906e1fe993d66d717f53d20",
+    "lastLiquibaseTimestamp": 1653218321000,
+    "messageBroker": false,
+    "packageFolder": "com/example/excercise",
+    "packageName": "com.example.excercise",
+    "prodDatabaseType": "oracle",
+    "promptValues": {
+      "packageName": "com.example.excercise"
+    },
+    "searchEngine": false,
+    "serverPort": "8081",
+    "serviceDiscoveryType": "consul",
+    "skipCheckLengthOfIdentifier": true,
+    "skipClient": true,
+    "skipUserManagement": true,
+    "testFrameworks": ["cucumber"],
+    "websocket": false
+  }
+}
