@@ -4,19 +4,17 @@ server:
 
 spring:
   datasource:
-    type: com.zaxxer.hikari.HikariDataSource
-    hikari:
-      minimum-idle: 2
-      maximum-pool-size: 2
-    url: jdbc:h2:~/test;AUTO_SERVER=TRUE;
+    url: jdbc:h2:~/liquibase3;DB_CLOSE_ON_EXIT=FALSE
     username: sa
     password:
+    driverClassName: org.h2.Driver
+    url=jdbc:h2:file:/data/demo:
   liquibase:
-    change-log: classpath:db/changelog/dbchangelog.xml
+    change-log: classpath:config/liquibase/master.xml
     enabled: true
   h2:
     console:
-      enabled: false
+      enabled: true
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     database: H2
