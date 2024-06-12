@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <databaseChangeLog
-        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
-        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd
                         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
     <!--
@@ -36,10 +36,10 @@
     -->
     <changeSet id="20220522111841-1-data" author="jhipster" context="faker">
         <loadData
-                file="Config/liquibase/changelog/videojuego.csv"
-                separator=";"
-                tableName="videojuego"
-                usePreparedStatements="true">
+                  file="config/liquibase/fake-data/videojuego.csv"
+                  separator=";"
+                  tableName="videojuego"
+                  usePreparedStatements="true">
             <column name="id" type="numeric"/>
             <column name="nombre" type="string"/>
             <column name="imagenes" type="string"/>

@@ -1,0 +1,6 @@
+
+entity Videojuego {
+	nombre String
+    	imagenes String
+}
+
